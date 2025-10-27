@@ -38,14 +38,14 @@ const VoiceAgentButton: React.FC = () => {
         className={`px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-200 transform hover:scale-105 ${
           isConnected
             ? "bg-red-500 hover:bg-red-600 text-white"
-            : "bg-teal-600 hover:bg-teal-700 text-white"
+            : "bg-amber-600 hover:bg-amber-700 text-white"
         }`}
       >
         {isConnected
           ? isSpeaking
-            ? "💬 I'm talking..."
-            : "👋 End conversation"
-          : "🎙️ Start a voice chat"}
+            ? "⚖️ Explaining..."
+            : "📚 End Study Session"
+          : "⚖️ Ask Digital Law Bot"}
       </button>
     </div>
   );

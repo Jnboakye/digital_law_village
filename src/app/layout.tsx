@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CustoCare AI",
-  description: "The Future of Conversational Bots",
+  title: "Digital Law Village - Digital Law Bot",
+  description: "Your intelligent legal learning companion powered by AI. Master law concepts, prepare for exams, and excel in your legal studies with Digital Law Bot.",
 };
 
 export default function RootLayout({
