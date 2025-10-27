@@ -11,7 +11,7 @@ export default function Hero() {
       {/* GitHub Link - Top Right */}
       <div className="absolute top-6 right-6 z-10">
         <a
-          href="https://github.com/Jnboakye/"
+          href="https://github.com/Jnboakye/Digital_law_village"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all duration-200 transform hover:scale-105"
