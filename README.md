@@ -1,4 +1,4 @@
-# CustoCare AI
+# Digital Law Village 
 
 A simple landing page showcasing CustoCare AI built with Next.js and Vapi.
 
