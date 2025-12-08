@@ -10,7 +10,7 @@ interface MessageInputProps {
 export function MessageInput({
   onSend,
   disabled = false,
-  placeholder = 'Type your question about Ghanaian law...'
+  placeholder = 'Type your question about Ghanaian law....'
 }: MessageInputProps) {
   const [message, setMessage] = useState('');
 
