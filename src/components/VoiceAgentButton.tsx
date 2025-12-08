@@ -28,7 +28,11 @@ const VoiceAgentButton: React.FC = () => {
 
   const toggleCall = () => {
     if (!vapi) return;
-    isConnected ? vapi.stop() : vapi.start(assistantId);
+    if (isConnected) {
+      vapi.stop();
+    } else {
+      vapi.start(assistantId);
+    }
   };
 
   return (
