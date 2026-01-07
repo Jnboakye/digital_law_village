@@ -3,7 +3,7 @@ export const ragConfig = {
   chunkOverlap: 200,            // Overlap to maintain context
   embeddingModel: "text-embedding-3-small",
   embeddingDimensions: 1536,
-  topK: 3,                      // Number of chunks to retrieve
+  topK: 2,                      // Number of chunks to retrieve (reduced from 3 for faster processing)
   similarityThreshold: 0.2,     // Minimum relevance score (adjusted for cosine similarity scores)
   pineconeIndex: process.env.PINECONE_INDEX || "law-bot-index",
   pineconeNamespace: "ghanaian-law",

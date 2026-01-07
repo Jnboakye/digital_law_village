@@ -20,14 +20,9 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           <p className="text-gray-600">
             Ask me anything about Ghanaian law. I&apos;m here to help you learn and understand legal concepts.
           </p>
-          <div className="mt-6 text-left text-sm text-gray-500">
-            <p className="mb-2">Try asking:</p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>&quot;What is the constitution of Ghana?&quot;</li>
-              <li>&quot;Explain contract law in Ghana&quot;</li>
-              <li>&quot;What are property rights?&quot;</li>
-            </ul>
-          </div>
+          <p className="mt-6 text-sm text-gray-500">
+            Click on a suggested question below to get started!
+          </p>
         </div>
       </div>
     );

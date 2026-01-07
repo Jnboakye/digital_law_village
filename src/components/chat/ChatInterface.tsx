@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { MessageList } from './MessageList';
 import { MessageInput } from './MessageInput';
+import { PromptSuggestions } from './PromptSuggestions';
 import { useChat } from '@/hooks/useChat';
 
 export function ChatInterface() {
@@ -68,6 +69,13 @@ export function ChatInterface() {
         <MessageList messages={messages} isLoading={isLoading} />
         <div ref={messagesEndRef} />
       </div>
+
+      {/* Prompt Suggestions - Show when no messages */}
+      {messages.length === 0 && !isLoading && (
+        <div className="shrink-0">
+          <PromptSuggestions onSelectPrompt={sendMessage} disabled={isLoading} />
+        </div>
+      )}
 
       {/* Input */}
       <div className="shrink-0">

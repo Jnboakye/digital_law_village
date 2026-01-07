@@ -34,5 +34,5 @@ export const openai = new Proxy({} as OpenAI, {
 export const AI_CONFIG = {
   model: 'gpt-4o-mini', // Fast and cost-effective for tutoring
   temperature: 0.7, // Balanced between creativity and consistency
-  maxTokens: 1000, // Reasonable length for tutoring responses
+  maxTokens: 800, // Reduced for faster responses (was 1000)
 } as const;
