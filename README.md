@@ -576,5 +576,3 @@ User → Frontend → API → RAG → OpenAI → Response → Frontend → User
 - Pinecone: Vector search
 - Redis: Session storage
 - TypeScript: Type safety
-
----
