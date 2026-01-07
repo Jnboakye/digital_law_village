@@ -42,7 +42,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 : 'bg-gray-100 text-gray-900'
             }`}
           >
-            <div className="whitespace-pre-wrap break-words">
+            <div className="whitespace-pre-wrap wrap-break-word">
               {message.content}
             </div>
             
