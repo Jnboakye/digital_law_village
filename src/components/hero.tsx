@@ -1,5 +1,5 @@
 "use client";
-import VoiceAgentButton from "@/components/VoiceAgentButton";
+import Link from "next/link";
 import FeatureCard from "@/components/featureCard";
 
 export default function Hero() {
@@ -46,9 +46,20 @@ export default function Hero() {
           Master law concepts, prepare for exams, and excel in your legal studies with AI-powered guidance.
         </p>
         
-        {/* Voice Agent Button */}
-        <div className="flex justify-center mb-16">
-          <VoiceAgentButton />
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-4 mb-16">
+          <Link
+            href="/chat"
+            className="px-8 py-4 rounded-full text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-200 transform hover:scale-105"
+          >
+            💬 Start Text Chat
+          </Link>
+          <Link
+            href="/voice"
+            className="px-8 py-4 rounded-full text-lg font-semibold bg-amber-600 hover:bg-amber-700 text-white shadow-lg transition-all duration-200 transform hover:scale-105"
+          >
+            🎤 Start Voice Chat
+          </Link>
         </div>
         
         {/* Feature Cards */}

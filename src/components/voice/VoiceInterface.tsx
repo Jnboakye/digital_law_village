@@ -10,22 +10,18 @@ import { useChat } from '@/hooks/useChat';
 
 export function VoiceInterface() {
   const { messages, isLoading, error, sendMessage, clearChat } = useChat();
-  const { isRecording, isTranscribing, startRecording, stopRecording, transcribe } = useVoice();
+  const { isRecording, isTranscribing, startRecording, stopRecording, transcribe, cleanup } = useVoice();
   const { isPlaying, isSynthesizing, synthesizeAndPlay, stop } = useAudioPlayer();
   const [status, setStatus] = useState<string>('');
 
   const handleRecord = async () => {
     try {
       if (isRecording) {
-        // Stop recording and transcribe
+        // Stop recording (transcription happens in real-time)
         setStatus('Processing...');
-        const audioBlob = await stopRecording();
+        const text = await stopRecording();
         
-        // Transcribe
-        setStatus('Transcribing...');
-        const text = await transcribe(audioBlob);
-        
-        if (!text.trim()) {
+        if (!text || !text.trim()) {
           setStatus('No speech detected. Please try again.');
           setTimeout(() => setStatus(''), 3000);
           return;
@@ -37,13 +33,22 @@ export function VoiceInterface() {
         setStatus('');
       } else {
         // Start recording
+        setStatus('Connecting...');
         await startRecording();
         setStatus('Recording... Click again to stop');
       }
     } catch (err) {
       console.error('Error in voice recording:', err);
-      setStatus(err instanceof Error ? err.message : 'An error occurred');
-      setTimeout(() => setStatus(''), 5000);
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      setStatus(errorMessage);
+      
+      // Clear status after showing error
+      setTimeout(() => setStatus(''), 7000);
+      
+      // Also set error in chat hook if it's a critical error
+      if (errorMessage.includes('permission') || errorMessage.includes('microphone')) {
+        // Error will be shown in the error banner
+      }
     }
   };
 
@@ -63,6 +68,13 @@ export function VoiceInterface() {
       });
     }
   }, [messages, isPlaying, isSynthesizing, isLoading, isTranscribing, synthesizeAndPlay]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      cleanup();
+    };
+  }, [cleanup]);
 
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-green-50 to-blue-50">
