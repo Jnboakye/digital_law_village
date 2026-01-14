@@ -50,3 +50,4 @@ export async function getDeepgramToken(): Promise<string> {
 }
 
 // I used deepgram since open AI's tts and sts seems not to work
+//Deep gram seems to have issues
